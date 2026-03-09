@@ -6,61 +6,105 @@
 <title>Bastian's Auto SMS Consent</title>
 
 <style>
-
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f5f6f7;
-margin:0;
-padding:40px;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f6f7;
+  margin:0;
+  padding:40px;
 }
 
 .container{
-max-width:700px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 6px 18px rgba(0,0,0,.08);
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 
 h1{
-margin-top:0;
-color:#950812;
+  margin-top:0;
+  color:#950812;
 }
 
 .box{
-border:1px solid #ddd;
-padding:20px;
-border-radius:8px;
-margin-top:20px;
+  border:1px solid #ddd;
+  padding:20px;
+  border-radius:8px;
+  margin-top:20px;
 }
 
 input[type=tel]{
-width:100%;
-padding:12px;
-font-size:16px;
-border-radius:6px;
-border:1px solid #ccc;
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  box-sizing:border-box;
 }
 
 .checkbox{
-margin-top:20px;
-display:flex;
-align-items:flex-start;
-gap:12px;
+  margin-top:20px;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
 }
 
 .checkbox input{
-margin-top:4px;
+  margin-top:4px;
+}
+
+.submit-wrap{
+  margin-top:20px;
+}
+
+button{
+  padding:12px 18px;
+  font-size:15px;
+  font-weight:700;
+  background:#950812;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#7d0710;
 }
 
 .footer{
-margin-top:25px;
-font-size:14px;
-color:#555;
+  margin-top:25px;
+  font-size:14px;
+  color:#555;
 }
 
+.confirmation{
+  display:none;
+  margin-top:15px;
+  padding:12px 14px;
+  background:#eef7ee;
+  border:1px solid #b8d8b8;
+  border-radius:6px;
+  color:#1f4d1f;
+  font-size:14px;
+}
 </style>
+
+<script>
+function submitConsent() {
+  var phone = document.getElementById('phone').value.trim();
+  var consent = document.getElementById('smsConsent').checked;
+  var confirmation = document.getElementById('confirmation');
+
+  if (!consent) {
+    alert("Please check the SMS consent box before submitting.");
+    return;
+  }
+
+  confirmation.style.display = 'block';
+}
+</script>
 
 </head>
 
@@ -74,26 +118,30 @@ color:#555;
 
 <div class="box">
 
-<label>Mobile Phone Number (optional)</label>
+<label for="phone">Mobile Phone Number (optional)</label>
 
-<input type="tel" placeholder="Enter mobile number">
+<input type="tel" id="phone" placeholder="Enter mobile number">
 
 <div class="checkbox">
 
-<input type="checkbox">
+<input type="checkbox" id="smsConsent">
 
-<label>
-
-I agree to receive SMS messages from Bastian's Auto regarding vehicle inquiries, application updates, and customer support.
-
-Message frequency varies. Message and data rates may apply.
+<label for="smsConsent">
+I agree to receive SMS messages from Bastian's Auto regarding vehicle inquiries, application updates, and customer support. Message frequency varies. Message and data rates may apply.
 
 <br><br>
 
 By submitting this form, you confirm that you are the subscriber or authorized user of the phone number provided and you consent to receive SMS messages from Bastian's Auto.
-
 </label>
 
+</div>
+
+<div class="submit-wrap">
+  <button type="button" onclick="submitConsent()">Submit Consent</button>
+</div>
+
+<div id="confirmation" class="confirmation">
+  Thank you. Your SMS consent has been recorded for demonstration purposes on this compliance proof page.
 </div>
 
 </div>
@@ -111,12 +159,9 @@ By submitting this form, you confirm that you are the subscriber or authorized u
 </div>
 
 <div class="footer">
-
-Bastian's Auto  
-Toll Free: +1 (877) 851-3638  
-
+Bastian's Auto<br>
+Toll Free: +1 (877) 851-3638<br><br>
 SMS consent proof page for Twilio toll-free verification.
-
 </div>
 
 </div>
