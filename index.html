@@ -79,6 +79,18 @@ button:hover{
   color:#555;
 }
 
+.footer a{
+  color:#950812;
+  font-weight:700;
+  text-decoration:underline;
+}
+
+.compliance-links{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid #ddd;
+}
+
 .confirmation{
   display:none;
   margin-top:15px;
@@ -93,7 +105,6 @@ button:hover{
 
 <script>
 function submitConsent() {
-  var phone = document.getElementById('phone').value.trim();
   var consent = document.getElementById('smsConsent').checked;
   var confirmation = document.getElementById('confirmation');
 
@@ -114,7 +125,7 @@ function submitConsent() {
 
 <h1>SMS Opt-In Proof</h1>
 
-<p>This page demonstrates the SMS consent workflow used by <strong>Bastian's Auto</strong> for compliance verification.</p>
+<p>This page demonstrates the SMS consent workflow used by <strong>Bastian's Auto Outlet Inc</strong> for compliance verification.</p>
 
 <div class="box">
 
@@ -127,11 +138,7 @@ function submitConsent() {
 <input type="checkbox" id="smsConsent">
 
 <label for="smsConsent">
-I agree to receive SMS messages from Bastian's Auto regarding vehicle inquiries, application updates, and customer support. Message frequency varies. Message and data rates may apply.
-
-<br><br>
-
-By submitting this form, you confirm that you are the subscriber or authorized user of the phone number provided and you consent to receive SMS messages from Bastian's Auto.
+I consent to receive informational messages &amp; alerts by SMS from Bastian’s Auto Outlet Inc regarding my inquiry, appointment, application, and follow-up communication. Message frequency varies. Message &amp; data rates may apply. Reply STOP to unsubscribe at any time. Reply HELP for help. Consent is not a condition of purchase.
 </label>
 
 </div>
@@ -166,6 +173,12 @@ Local: <strong>+1 (563) 214-0124</strong><br>
 Toll-Free: <strong>+1 (877) 851-3638</strong><br><br>
 
 SMS opt-in proof page for Twilio compliance verification.
+
+<div class="compliance-links">
+  <a href="https://www.bastiansautos.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  &nbsp;|&nbsp;
+  <a href="https://www.bastiansautos.com/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+</div>
 </div>
 
 </div>
